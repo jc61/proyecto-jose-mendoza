@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { Login } from './components/Login';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+          {/* Cabezera del sitio */}
+          <header className="header">
+            <div className='layout'>
+              {/* <div className="logo">
+                  <div className="play"></div>
+              </div> */}
+
+              ¡Envíos a toda Colombia por solo $5.000 pesos!
+            </div>
+          </header>
+
+          {/* Barra de navegación */}
+          <nav className="nav">
+            <div className="logo">
+              <img src='classicjeans.png' />
+            </div>
+            <ul>
+              <li><a href='/#'>Inicio</a></li>
+              <li><a href='/#'>Blog</a></li>
+              <li><a href='/#'>Contacto</a></li>
+            </ul>
+          </nav>
+        
+          <Login />
+    </>
   );
 }
 
