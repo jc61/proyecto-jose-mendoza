@@ -13,6 +13,18 @@ body {
   justify-content: center;
 }
 
+/* .layout {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-areas: 
+      "nav nav nav nav"
+      "content content content lateral"
+      "footer footer footer footer"
+  ;
+  grid-template-rows: 100px 70px auto 70px;
+} */
+
 .header {
   background-color: black;
   height: 2.8125rem;
@@ -31,6 +43,7 @@ body {
   margin-top: 20px;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  position: relative;
 }
 
 .nav > ul {
@@ -118,6 +131,22 @@ body {
   font-weight: 800;
 }
 
+/* ESTILOS PARA EL PIE DE PAGINA */
+.footer {
+  background: #d1defa;
+  color: #454545;
+  border-top: 1px solid white;
+  text-align: center;
+  line-height: 68px;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.footer a {
+  color: #0b468a;
+  text-decoration: none;
+}
+
 label {
   font-size: 14px;
   font-weight: 600;
@@ -151,6 +180,7 @@ label {
   height: var(--uib-size);
   width: var(--uib-size);
   margin: 0 auto;
+  margin-bottom: 150px;
 }
 
 .dot-spinner__dot {
@@ -243,4 +273,49 @@ label {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.titulo {
+  margin: 0 auto;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.buscador {
+  margin: 0 auto;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: inherit;
+  float: right;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+/* Estilo del modal */
+h2 {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.lateral {
+  background: #f6f7f9;
+  padding: 80px;
+  height: 180%;
+  float: left;
+  margin-right: 20px;
+  border-radius: 100px 100px 100px 100px;
+}
+
+.aside-btn {
+  border-radius: 10px 10px 10px 10px;
+  border: none;
+  background: white;
+  color: gray;
 }

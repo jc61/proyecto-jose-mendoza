@@ -30,6 +30,11 @@ function App() {
           </nav>
         
           <Login />
+
+          {/* Pie de pagina */}
+          <footer className="footer">
+              &copy; Desarrollado por Julio Iglesias - <a href='https://github.com/jc61'>GitHub</a>
+          </footer>
     </>
   );
 }
