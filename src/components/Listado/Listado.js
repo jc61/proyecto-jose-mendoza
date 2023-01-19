@@ -5,9 +5,12 @@ import { DataGrid } from "@mui/x-data-grid";
 import { darken, lighten } from "@mui/material/styles";
 import { Modal } from "@mui/material";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Buscador } from "./Buscador";
+import { Buscador } from "../Buscador";
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import CloseIcon from '@mui/icons-material/Close';
+
+// css
+import style from './Listado.module.css';
 
 const getBackgroundColor = (color, mode) =>
   mode === "dark" ? darken(color, 0.6) : lighten(color, 0.6);
@@ -15,17 +18,7 @@ const getBackgroundColor = (color, mode) =>
 const getHoverBackgroundColor = (color, mode) =>
   mode === "dark" ? darken(color, 0.5) : lighten(color, 0.5);
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+
 
 export const Listado = () => {
   /* const { data } = useDemoData({
@@ -42,7 +35,7 @@ export const Listado = () => {
   const [open, setOpen] = useState(false); // Modal
   const [imprimirDatos, setImprimirDatos] = useState({}); // Obtiene el dato de la fila
 
-  const handleOpen = ({row}) => {
+  const handleOpen = ({ row }) => {
     setImprimirDatos(row);
     setOpen(true);
   }
@@ -154,7 +147,7 @@ export const Listado = () => {
     getDatosEstaticos();
     //getUsuariosAW();
   }, []);
-  
+
   // Columnas de la tabla
   const columns = [
     { field: "id", headerName: "ID" },
@@ -166,33 +159,47 @@ export const Listado = () => {
       //Acción para abrir modal y ver mayor información
       field: "action",
       renderCell: (data) => (
-          <>
-                <Button
-                  onClick={() => handleOpen(data)}
-                  style={{ background: "#06712A", color: "white", width: "20px", height: "40px" }}
-                >
-                  More...
-                </Button>
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
-                    More Information
-                  </Typography>
-                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    {<p>Nombre: {imprimirDatos.first_name}{" "}
-                    {imprimirDatos.last_name}</p>}
-                    {" "}
-                    {<br/>}
-                    {<p>Correo: {imprimirDatos.email}</p>}
-                  </Typography>
-                </Box>
-              </Modal>
-            </>
+        <>
+          <Button
+            onClick={() => handleOpen(data)}
+            style={{ background: "#06712A", color: "white", width: "20px", height: "40px" }}
+          >
+            More...
+          </Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box className={style.modelContainer}>
+              <div className={style.title}>
+                <CloseIcon onClick={() => { setOpen(false) }} className={style.btnExit} sx={{ fontSize: 35 }} />
+                Información de contacto
+              </div>
+
+              <div className={style.modalInfoBox}>
+                <div className={style.col}>
+                  <label>Nombre </label>
+                  <p>{imprimirDatos.first_name}
+                    {imprimirDatos.last_name}</p>
+                </div>
+
+                <hr />
+                <div className={style.col}>
+                  <label>Correo </label>
+                  <p> {imprimirDatos.email}</p>
+                </div>
+                <hr />
+                <div className={style.col}>
+                  <label>Status </label>
+                  <p> {imprimirDatos.status?.toUpperCase()}</p>
+                </div>
+                <hr />
+              </div>
+            </Box>
+          </Modal >
+        </>
       ),
     },
   ];
