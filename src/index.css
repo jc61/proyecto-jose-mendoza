@@ -282,14 +282,12 @@ label {
 }
 
 .buscador {
-  margin: 0 auto;
   font-family: inherit;
   font-size: 20px;
   line-height: inherit;
-  float: right;
   width: fit-content;
   height: fit-content;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-right: 10px;
 }
 
