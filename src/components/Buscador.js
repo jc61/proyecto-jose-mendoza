@@ -43,7 +43,6 @@ export const Buscador = ({listadoState, setListadoState}) => {
                placeholder="Buscar"
                className='buscador'
                 />
-                <GridSearchIcon />
         </div>
       </form>
     </div>

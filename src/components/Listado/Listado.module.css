@@ -6,8 +6,8 @@
   width: 500px;
   height: 500px;
   background-color: #f9f9f9;
-  border: 2px solid #000;
-  box-shadow: 24px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .title {
@@ -27,15 +27,15 @@
   position: absolute;
   left: 10px;
   top: 15px;
-  color: rgb(233, 107, 107);
+  color: #f9f9f9;
   transition: 0.3s;
   cursor: pointer;
 }
 
 .btnExit:hover {
-  color: rgb(227, 81, 81);
+  color: #f9f9f9;
   transition: 0.3s;
-  transform: scale(1.4);
+  transform: scale(1.1);
 }
 
 .modalInfoBox {

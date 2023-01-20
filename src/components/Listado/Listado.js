@@ -6,19 +6,17 @@ import { darken, lighten } from "@mui/material/styles";
 import { Modal } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Buscador } from "../Buscador";
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import CloseIcon from '@mui/icons-material/Close';
+//import AcUnitIcon from '@mui/icons-material/AcUnit';
+import CloseIcon from "@mui/icons-material/Close";
 
 // css
-import style from './Listado.module.css';
+import style from "./Listado.module.css";
 
 const getBackgroundColor = (color, mode) =>
   mode === "dark" ? darken(color, 0.6) : lighten(color, 0.6);
 
 const getHoverBackgroundColor = (color, mode) =>
   mode === "dark" ? darken(color, 0.5) : lighten(color, 0.5);
-
-
 
 export const Listado = () => {
   /* const { data } = useDemoData({
@@ -38,7 +36,7 @@ export const Listado = () => {
   const handleOpen = ({ row }) => {
     setImprimirDatos(row);
     setOpen(true);
-  }
+  };
 
   const handleClose = () => setOpen(false);
 
@@ -162,43 +160,15 @@ export const Listado = () => {
         <>
           <Button
             onClick={() => handleOpen(data)}
-            style={{ background: "#06712A", color: "white", width: "20px", height: "40px" }}
+            style={{
+              background: "#06712A",
+              color: "white",
+              width: "20px",
+              height: "40px",
+            }}
           >
             More...
           </Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box className={style.modelContainer}>
-              <div className={style.title}>
-                <CloseIcon onClick={() => { setOpen(false) }} className={style.btnExit} sx={{ fontSize: 35 }} />
-                Información de contacto
-              </div>
-
-              <div className={style.modalInfoBox}>
-                <div className={style.col}>
-                  <label>Nombre </label>
-                  <p>{imprimirDatos.first_name}
-                    {imprimirDatos.last_name}</p>
-                </div>
-
-                <hr />
-                <div className={style.col}>
-                  <label>Correo </label>
-                  <p> {imprimirDatos.email}</p>
-                </div>
-                <hr />
-                <div className={style.col}>
-                  <label>Status </label>
-                  <p> {imprimirDatos.status?.toUpperCase()}</p>
-                </div>
-                <hr />
-              </div>
-            </Box>
-          </Modal >
         </>
       ),
     },
@@ -228,16 +198,19 @@ export const Listado = () => {
     return (
       <>
         <div className="titulo">
-          <h1>Tabla <Buscador />{/* <input type='text' placeholder='Buscar' className="buscador" /> */}</h1>
+          <h1>
+            <Buscador />
+            {/* <input type='text' placeholder='Buscar' className="buscador" /> */}
+          </h1>
         </div>
-        <aside className="lateral">
+        {/* <aside className="lateral">
           <div>
             <p><button className="aside-btn"><AcUnitIcon /></button></p>
             <p><button className="aside-btn"><AcUnitIcon /></button></p>
             <p><button className="aside-btn"><AcUnitIcon /></button></p>
             <p><button className="aside-btn"><AcUnitIcon /></button></p>
           </div>
-        </aside>
+        </aside> */}
         <div style={{ height: 500, width: "100%" }}>
           <Box
             sx={{
@@ -304,6 +277,47 @@ export const Listado = () => {
             />
           </Box>
         </div>
+        {/* Modal */}
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className={style.modelContainer}>
+            <div className={style.title}>
+              <CloseIcon
+                onClick={() => {
+                  setOpen(false);
+                }}
+                className={style.btnExit}
+                sx={{ fontSize: 35 }}
+              />
+              Información de contacto
+            </div>
+
+            <div className={style.modalInfoBox}>
+              <div className={style.col}>
+                <label>Nombre </label>
+                <p>
+                  {imprimirDatos.first_name} {imprimirDatos.last_name}
+                </p>
+              </div>
+
+              <hr />
+              <div className={style.col}>
+                <label>Correo </label>
+                <p> {imprimirDatos.email}</p>
+              </div>
+              <hr />
+              <div className={style.col}>
+                <label>Status </label>
+                <p> {imprimirDatos.status?.toUpperCase()}</p>
+              </div>
+              <hr />
+            </div>
+          </Box>
+        </Modal>
       </>
     );
   }
